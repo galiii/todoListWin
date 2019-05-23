@@ -1,0 +1,27 @@
+{
+  "name": "todolistwin",
+  "version": "1.0.0",
+  "description": "Tasks list manager running on window",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/galiii/todoListWin.git"
+  },
+  "author": "Gali",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/galiii/todoListWin/issues"
+  },
+  "homepage": "https://github.com/galiii/todoListWin#readme",
+  "dependencies": {
+    "express": "^4.17.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2"
+  }
+}

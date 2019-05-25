@@ -1,0 +1,6 @@
+{
+    "title": "Todo Web Application",
+    "version": "16.0.0",
+    "description": "A simple web applicatin ",
+    "lib": ["AnglarJS", "Webpack", "ExpressJS", "Gulp"]
+  }

@@ -1,7 +1,6 @@
-/* for using angularjs*/
-import angular from "angular";
-/* for ui router*/
-import "@uirouter/angularjs";
+
+import angular from "angular"; ///for using angularjs
+import "@uirouter/angularjs"; //for ui router
 
 
 

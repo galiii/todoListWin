@@ -14,12 +14,10 @@ const pathAbout = path.resolve(__dirname + "/../data/about.json"); //about.json
 app.use(express.static(__dirname + "/../dist"));
 app.use(bodyParser.json()); // for parsing application/json
 
-
 app.get("/about", function(req, res) { // ABOUT component 
     console.log("On the server side ABOUT");
     res.sendFile(pathAbout);
   });
-
 
 app.get("/lists", function(req, res) { // ALL LISTS
     console.log("On the server side all LISTS");
@@ -27,24 +25,37 @@ app.get("/lists", function(req, res) { // ALL LISTS
   });
 
 
-/* Add List */
+/* Add  Edit  List*/
 app.post("/addlist", function(req, res) {
-    console.log(req.body)
+    console.log("Add List on the server");
+    console.log("Add List on the server",typeof req,req);
+    console.log("Add List on the server",typeof req.body,req.body);
     const result = db.addList(req.body);
+    console.log("Add List on the server",typeof result,result);
     res.json(result);
   });
   
-  /* edit List */
   app.post("/edit-list/:id", function(req, res) {
-    const result = data.editList(req.params, req.body);
+    console.log("Edit List on the server");
+    console.log("Edit List on the server",typeof req,req);
+    console.log("Edit List on the server",typeof req.body,req.body);
+    console.log("Edit List on the server",typeof req.params,req.params);
+    const result = db.editList(req.params, req.body);
+    console.log("Edit List on the server",typeof result.params,result.params);
     res.json(result);
   });
   
   
-  /****** List Id Get all items******/
-  app.get("/lists/:id", function(req, res) {
-    const temp = data.getList(req.params);
+  /* Get Add  Edit  Card*/
+
+  app.get("/lists/:id", function(req, res) { // get all the cards from parent list
+    const temp = db.getList(req.params);
     res.send(temp);
+  });
+
+  app.post("/addItem/:id", function(req, res) {
+    const result = db.addCard(req.params, req.body);
+    res.json(result);
   });
   
 

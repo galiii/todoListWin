@@ -19,17 +19,22 @@
   "dependencies": {
     "@uirouter/angularjs": "^1.0.22",
     "angular": "^1.7.8",
+    "angular-animate": "^1.7.8",
     "angular-aria": "^1.7.8",
+    "angular-material": "^1.1.18",
+    "angular-messages": "^1.7.8",
     "browser-sync": "^2.26.5",
     "express": "^4.17.0",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-util": "^3.0.8",
     "plugin-error": "^1.0.1",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "gulp": "^4.0.2",
-    "gulp-clean": "^0.4.0",
-    "gulp-sass": "^4.0.2",
     "node-sass": "^4.12.0",
+    "raw-loader": "^2.0.0",
     "webpack": "^4.32.2",
     "webpack-cli": "^3.3.2"
   }

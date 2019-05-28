@@ -1,0 +1,51 @@
+<div class="md-dialog-container" layout="column" layout-padding ng-cloak>
+    <!--- the head of the dialog -->
+    <md-dialog aria-label="Add Card">
+        <form name="addItemForm">
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <h2>Add Card</h2>
+                    <span flex></span>
+                    <md-button class="md-icon-button" ng-click="cancel()">
+                        <md-icon aria-label="Close dialog">close</md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+
+            <md-dialog-content>
+                <div class="md-dialog-content">
+                    <!-- title input -->
+                    <md-input-container class="md-icon-float md-block">
+                        <label>Name of Item</label>
+                        <md-icon class="list">list</md-icon>
+                        <input required md-no-asterisk md-maxlength="16" md-minlength="2" name="title" ng-model="newItem.title" type="text">
+                        <div ng-messages="addItemForm.title.$error">
+                            <div ng-message="required">This is required.</div>
+                            <div ng-message="md-maxlength">The title must be less than 6 characters long.</div>
+                            <div ng-message="md-minlength">The title must be more than 2 characters long.</div>
+                        </div>
+                    </md-input-container>
+
+                    <!-- Description -->
+                    <md-input-container class="md-block">
+                        <label>Description</label>
+                        <input md-maxlength="50" required md-no-asterisk name="description" ng-model="newItem.description">
+                        <div ng-messages="addItemForm.description.$error">
+                            <div ng-message="required">This is required.</div>
+                            <div ng-message="md-maxlength">The description must be less than 50 characters long.</div>
+                        </div>
+                    </md-input-container>
+
+                </div>
+            </md-dialog-content>
+
+            <md-dialog-actions layout="row">
+                <md-button ng-click="cancel()"> Cancel</md-button>
+                <span flex="5"></span>
+                <md-button ng-disabled="!(newCard.description && newCard.title )" ng-click="answer(newCard)" class="md-primary">
+                    Add
+                </md-button>
+            </md-dialog-actions>
+        </form>
+    </md-dialog>
+</div>

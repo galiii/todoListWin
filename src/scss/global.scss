@@ -1,0 +1,44 @@
+@import "variables";
+
+@mixin links ($link, $visited, $hover, $active) {
+  & {
+    color: $link;
+    &:visited {
+      color: $visited;
+    }
+    &:hover {
+      color: $hover;
+    }
+    &:active {
+      color: $active;
+    }
+  }
+}
+
+body {
+  background: linear-gradient(
+    to bottom right,
+    grey,
+    rgba(0, 0, 0, 0.582)
+  ); /* Standard syntax */
+  background-image: url($dist-root+"/img/cool.gif"); // no-repeat center fixed;
+
+  .img-back {
+    color: white;
+    background: black;
+    background: url($dist-root+"/img/good.jpg") no-repeat center fixed;
+    background-size: cover;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  md-toolbar {
+    .md-toolbar-tools {
+      .mt-4 {
+        margin-top: $mt-4;
+      }
+    }
+  }
+}

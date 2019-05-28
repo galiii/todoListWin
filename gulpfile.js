@@ -2,34 +2,23 @@ const gulp = require("gulp"); // the main gulp gulp.task(..) gulp.pipe(..) and s
 const clean = require("gulp-clean"); //
 const browserSync = require("browser-sync").create(); //create the web server that we i'm going to use
 const webpack = require("webpack");
-const gutil = require('plugin-error');
+const gutil = require('gulp-util');
 const sass = require("gulp-sass");
-sass.compiler = require('node-sass');
+//sass.compiler = require('node-sass');
 
 
 
-//
-gulp.task("clean", function () {
-  gulp.src("./dist").pipe(clean());
-});
 
-
-//
-gulp.task("browser-sync", function () {
-  browserSync.init(null, {
-    open: true, //in order to open the browser atumatically
-    server: {
-      baseDir: "dist"
-    }
-  });
-});
-
-
-//
-gulp.task("html", function () {
+gulp.task("sass", function () {
   gulp
-    .src(["./src/templates/index.html"])
-    .pipe(gulp.dest("./dist/")) //
+    .src(["./src/scss/main.scss"])
+    .pipe(sass()) //to take the result (of the preview line) and pass at through sass() will convert to css
+    .pipe(gulp.dest("./dist/css")) // where we want out result to be save
+    /*
+     will tell it to reload my browser , 
+     when we develop in the backround 
+     so i don't have to refresh the page
+     */
     .pipe(
       browserSync.reload({
         stream: true
@@ -37,24 +26,25 @@ gulp.task("html", function () {
     );
 });
 
-
 gulp.task("webpack", function (clbk) {
   webpack(
     {
-      entry: "./src/app/app.js",
+      entry: "./src/app/appp.js",
+      mode: "development",
       output: {
         path: __dirname + "/dist/js",
         filename: "scripts.js"
       },
       devtool: "source-map", //for developer to see the js and do debug instead of using debbugar
       module: {
-        loaders: [
+        
+        rules: [
           {
             test: /\.html$/,
-            loader: "raw-loader"
+            use: "raw-loader"
           },
-          {
-            test: /\.(jpg|png|svg)$/i,
+          /*{
+            //test: /\.(jpg|png|svg)$/i,
             use: [
               {
                 loader: "file-loader",
@@ -65,7 +55,7 @@ gulp.task("webpack", function (clbk) {
                 }
               }
             ]
-          }
+          }*/
         ]
       }
     },
@@ -85,26 +75,16 @@ gulp.task("webpack", function (clbk) {
   );
 });
 
-
-
-gulp.task("sass", function () {
+gulp.task("html", function () {
   gulp
-    .src(["./src/scss/main.scss"])
-    .pipe(sass().on('error', sass.logError)) //to take the result (of the preview line) and pass at through sass() will convert to css
-    .pipe(gulp.dest("./dist/css")) // where we want out result to be save
-    /*
-     will tell it to reload my browser , 
-     when we develop in the backround 
-     so i don't have to refresh the page
-     */
+    .src(["./src/templates/index.html"])
+    .pipe(gulp.dest("./dist/")) //must have this path
     .pipe(
       browserSync.reload({
         stream: true
       })
     );
 });
-
-
 
 //actually what build my app
 gulp.task("build", function () {
@@ -121,7 +101,8 @@ gulp.task("browser-sync", function () {
   });
 });
 
-gulp.task("start", function() {
+//
+gulp.task("start", function () {
   gulp.start(["build", "browser-sync"]);
 
   //watch = this directive for changes and if you change any js file run again ...
@@ -134,7 +115,7 @@ gulp.task("start", function() {
   gulp.watch(["./src/templates/index.html", "./src/app/**/*.html"], ["html"]);
 });
 
-
-gulp.task("clean", function() {
+gulp.task("clean", function () {
   gulp.src("./dist").pipe(clean());
 });
+

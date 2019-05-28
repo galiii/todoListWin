@@ -1,0 +1,35 @@
+.page_2 {
+  a {
+    @include links(white, white, teal, white);
+  }
+  //background-color: rgb(48,48,48);
+  //color: white;
+  .my-face {
+    color: white;
+    margin-right: 15px;
+  }
+
+  md-content {
+    .rightbar {
+      margin-top: 0px;
+      margin-bottom: auto;
+      padding-left: 0px;
+      padding-top: 11px;
+      padding-right: 50px;
+      border-left-width: 0px;
+      border-right-width: 66px;
+      margin-right: 33px;
+    }
+
+    .mt-2 {
+      margin-top: $mt-2;
+    }
+
+    @media screen and (min-width: 960px) {
+      .layout-gt-sm-row > .flex {
+        min-width: 329px;
+        background-color: red;
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+$dist-root: "../";
+$mr-15: 15px;
+$mr-30: 2*$mr-15;
+$r-100: 100px;
+$ml-15: 15px;
+$total: 3; //Number of .ray divs in our html
+$step: 90deg / $total; //Used to compute the hue based on color-wheel
+$mt-4: 4%;
+$mt-2: $mt-4/2;

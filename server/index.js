@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express(); // creating server
 const PORT = 3000; //
+const path = require('path');
 
 const bodyParser = require("body-parser");
 const db = require("../data") 
@@ -19,16 +20,22 @@ app.get("/about", function(req, res) { // ABOUT component
     res.sendFile(pathAbout);
   });
 
-app.get("/lists", function(req, res) { // ALL LISTS
+app.get("/list", function(req, res) { // ALL LISTS
     console.log("On the server side all LISTS");
     res.sendFile(pathAllList); //respond to the client side 
   });
 
 
-/* Add  Edit  List*/
+  /**
+  * Add List
+  * HTTP Request post
+  * @param {string} '/addlist' The original Url 
+  * @param {object} req 
+  * @param {object} res 
+  *
+  */
 app.post("/addlist", function(req, res) {
     console.log("Add List on the server");
-    console.log("Add List on the server",typeof req,req);
     console.log("Add List on the server",typeof req.body,req.body);
     const result = db.addList(req.body);
     console.log("Add List on the server",typeof result,result);

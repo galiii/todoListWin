@@ -1,0 +1,49 @@
+//@import "../../../scss/variables";
+
+@for $i from 1 through $total {
+  .my-face:nth-child(#{$i}) {
+    color: adjust-hue(rgb(0, 0, 0), $i * $step);
+  }
+}
+
+.list-page {
+  a {
+    @include links(black, black, teal, black);
+  }
+  //background-color: palevioletred;
+  background: linear-gradient(
+    to right,
+    rgba(255, 0, 0, 0),
+    rgb(107, 98, 129)
+  ); /*Standard*/
+  bottom: 0;
+
+  .noright {
+    .my-face {
+      margin-right: $mr-15;
+    }
+
+    .mt-2 {
+      margin-top: $mt-2;
+    }
+    .task-done {
+      margin-right: $mr-30;
+    }
+    .icon_edit {
+      //margin-left: $ml-15;
+      margin-right: $mr-15;
+    }
+  }
+  md-content {
+    md-list {
+      width: 300px;
+    }
+  }
+}
+
+.fabToolbardemoBasicUsage
+  md-fab-toolbar.md-right
+  md-fab-trigger.align-with-text {
+  right: $r-100;
+}
+

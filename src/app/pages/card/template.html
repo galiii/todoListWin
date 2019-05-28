@@ -1,0 +1,40 @@
+<div layout="column" class="page_2 md-inline-form" layout-gt-sm="row" layout-wrap ng-cloak>
+  <div flex-gt-sm="190">
+
+    <md-toolbar layout="row" class="md-hue-3">
+      <md-button class="md-fab" aria-label="add" ng-click="openAddItem($event)">
+        <md-icon md-font-icon="icon-add" aria-label="Add" class="icon_add md-secondary md-hue-3 ml-15">add</md-icon>
+      </md-button>
+      <div class="md-toolbar-tools">
+        <span class="mt-4">Item of
+          <strong>{{ card.parentName.id }}</strong>
+        </span>
+      </div>
+    </md-toolbar>
+
+    <md-content md-theme="docs-dark">
+      <md-list layout="column" layout-align="start strech" class="" flex="290">
+        <md-list-item ng-repeat="item in list.card">
+          <div layout="row" flex="">
+            <i class="material-icons  my-face" md-ink-ripple>list</i>
+            <!----a ui-sref="lists.list.item({itemId: item.title})" ui-sref-active="active" class="mt-2">{{item.title}}</a-->
+
+          </div>
+          <div layout-align="end">
+            <md-icon md-font-icon="icon-delete" ng-style="{ 'font-size':'26px',height:'28px','color':'rgba(150, 198, 200, 0.9)'}"
+              aria-label="Delete" ng-click="openDeleteItem(item,$event)">delete</md-icon>
+            <md-icon md-font-icon="icon-edit" ng-style="{ 'font-size':'26px',height:'28px','color':'rgba(150, 198, 200, 0.9)'}" aria-label="Edit" ng-click="">edit</md-icon>
+          </div>
+          <md-divider style="color:chartreuse;"></md-divider>
+        </md-list-item>
+
+      </md-list>
+
+    </md-content>
+
+
+
+  </div>
+  <md-divider style="color:chartreuse;"></md-divider>
+  <ui-view></ui-view>
+</div>

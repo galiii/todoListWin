@@ -42,7 +42,6 @@ function addList(list) {
   console.log("on DB in addList:");
   console.log("the type of idList", typeof list, list);
   console.log("the type of idList", typeof newId, newId);
-  console.log("the type of id", typeof id, id);
   console.log("the type of list", typeof lists[newId], lists[newId]);
   console.log("the type of idList", typeof cardsData, cardsData);
   return list;

@@ -1,0 +1,25 @@
+<!DOCTYPE html> 
+<html ng-app="myApp" lang="en">
+
+<head>
+    <title>Todo App</title>
+    <link rel="icon" type="image/gif/png" href="../img/images.png">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <md-toolbar class="md-fab md-accent img-back">
+        <md-fab-actions class="md-toolbar-tools">
+            <i class="material-icons">apps</i>&nbsp;&nbsp;
+            <a ui-sref="list" ui-sref-active="active">Lists</a>&nbsp;|&nbsp;
+            <a ui-sref="about" ui-sref-active="active">About</a>
+
+        </md-fab-actions>
+    </md-toolbar>
+    <!-- Our app entry point, everything will be generated here-->
+    <ui-view></ui-view>
+</body>
+
+<script src="js/scripts.js"></script>
+
+</html>

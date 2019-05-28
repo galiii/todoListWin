@@ -35,11 +35,8 @@ app.get("/list", function(req, res) { // ALL LISTS
   *
   */
 app.post("/addlist", function(req, res) {
-    console.log("Add List on the server");
-    console.log("Add List on the server",typeof req.body,req.body);
-    const result = db.addList(req.body);
-    console.log("Add List on the server",typeof result,result);
-    res.json(result);
+    const result = db.addList(req.body);//req.body an object type {title: "some string", description: "some string"}
+    res.json(result); //result an object type {id:"some random string", title: "some string", description: "some string"}
   });
   
   app.post("/edit-list/:id", function(req, res) {
